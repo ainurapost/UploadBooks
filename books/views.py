@@ -30,14 +30,9 @@ def detail(request, book_id):
     if request.method == 'POST':
         form = CommentForm(request.POST or None)
         if form.is_valid():
-            instance = Comment
-            instance.book = book
-            instance.text = form.cleaned_data['text']
-            form.save()
-            form = CommentForm()
-    # else:
-    #     form = CommentForm()
-
+            com = form.save(commit=False)
+            com.book = book
+            com.save()
     comments = Books.objects.filter(book=book_id)
     context = {'book': book, 'form': form, 'comments': comments}
     return render(request, 'books/detail.html', context)

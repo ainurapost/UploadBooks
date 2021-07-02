@@ -28,7 +28,7 @@ class Books(models.Model):
 
 
 class Comment(models.Model):
-    book = models.ForeignKey(Books, on_delete=models.CASCADE, default=True)
+    book = models.ForeignKey(Books, on_delete=models.CASCADE, default=None)
     text = models.TextField(max_length=100, blank=True)
 
     def __str__(self):
