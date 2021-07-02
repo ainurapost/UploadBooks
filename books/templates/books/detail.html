@@ -34,15 +34,21 @@
 
             <!-- Comments -->
             {% for comment in comments %}
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="media mb-4">
-                            <div class="media-body">
-                                {{ comment.text }}
+
+                <ul class="list-group">
+                    <h5 class="card-header">Comments to  the book:</h5>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="media mb-4">
+                                <div class="media-body">
+                                      <li class="list-group-item">{{ comment.text }}</li>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </ul>
+
+
             {% endfor %}
          </div>
     </div>

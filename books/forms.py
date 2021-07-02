@@ -13,7 +13,9 @@ class CommentForm(forms.ModelForm):
         fields = [
             "text",
         ]
-
+        widgets = {
+          'text': forms.Textarea(attrs={'rows': 4, }),
+        }
 
 
 class AddBookForm(forms.ModelForm):

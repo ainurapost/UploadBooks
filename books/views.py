@@ -33,7 +33,8 @@ def detail(request, book_id):
             com = form.save(commit=False)
             com.book = book
             com.save()
-    comments = Books.objects.filter(book=book_id)
+            form = CommentForm()
+    comments = Comment.objects.filter(pk=book_id)
     context = {'book': book, 'form': form, 'comments': comments}
     return render(request, 'books/detail.html', context)
 
