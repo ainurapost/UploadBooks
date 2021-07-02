@@ -1,0 +1,50 @@
+{%  extends "books/base.html" %}
+
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block context %}
+    <div class="row">
+        <div class="col-lg-8">
+
+              <div class="card mb-3">
+                <div class="card-header">
+                  Книга: <h2>{{ book.title }} </h2>
+                        <p> {{ book.author }}</p>
+                </div>
+
+                <div class="card-footer text-muted">
+                  {{ item.created_at|date:"Y-m-d H:m:s" }}
+                </div>
+              </div>
+
+                 <!-- Comments form-->
+            <div class="card my-4">
+                <h5 class="card-header">Leave a Comment:</h5>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p}}
+                        <button class="btn btn-primary" type="submit" value="Save">Add</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            {% for comment in comments %}
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="media mb-4">
+                            <div class="media-body">
+                                {{ comment.text }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+         </div>
+    </div>
+
+{% endblock %}

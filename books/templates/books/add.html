@@ -1,0 +1,18 @@
+{%  extends "books/base.html" %}
+
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block context %}
+
+<form method="POST">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit" value="save">Add</button>
+</form>
+
+
+{% endblock %}

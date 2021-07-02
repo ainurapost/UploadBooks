@@ -1,0 +1,21 @@
+{%  extends "books/base.html" %}
+
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block context %}
+    {% for book in random_l %}
+          <div class="card mb-3">
+            <div class="card-header">
+              Книга: <a href="{{ book.get_absolute_url }}"> {{ book }} </a>
+            </div>
+
+            <div class="card-footer text-muted">
+              {{ item.created_at|date:"Y-m-d H:m:s" }}
+            </div>
+          </div>
+
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,5 @@
+.idea/
+venv/
+media/
+books/migrations/
+db.sqlite3

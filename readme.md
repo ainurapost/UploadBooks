@@ -1,0 +1,1 @@
+Small django project to upload/read books
